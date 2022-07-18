@@ -59,7 +59,13 @@ class DetailScreen extends StatelessWidget {
         bottom: false,
         child: Stack(
           children: <Widget>[
-            Image.asset("assets/doctor_"+ count +".png"),
+            Image.asset("assets/doctor_"+ count +".png",
+              errorBuilder:  (BuildContext context, Object exception, StackTrace? stackTrace) {
+                                            
+              return Image.asset(
+                  "assets/user.png",);
+              },
+            ),
             DraggableScrollableSheet(
               maxChildSize: .8,
               initialChildSize: .6,

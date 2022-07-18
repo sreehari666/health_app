@@ -361,16 +361,19 @@ class _HomePageState extends State<HomePageScreen> {
                                         borderRadius: BorderRadius.circular(15),
                                         color: randomColor(),
                                       ),
-                                      child: (snapshot.data.length>4)?Image.asset(
+                                      child: Image.asset(
                                         "assets/doctor_$index.png",
                                         height: 50,
                                         width: 50,
                                         fit: BoxFit.contain,
-                                      ):Image.asset(
-                                        "assets/user.png",
-                                        height: 50,
-                                        width: 50,
-                                        fit: BoxFit.contain,
+                                        errorBuilder:  (BuildContext context, Object exception, StackTrace? stackTrace) {
+                                            
+                                            return Image.asset(
+                                              "assets/user.png",
+                                              height: 50,
+                                              width: 50,
+                                              fit: BoxFit.contain,);
+                                          },
                                       ),
                                     ),
                                   ),
